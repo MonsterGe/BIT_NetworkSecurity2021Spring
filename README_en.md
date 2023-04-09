@@ -1,5 +1,13 @@
 BIT undergraduate network and information security course assignment
 
+# BIT_NetworkSecurity2021Spring
+
+The final work of Network Security Course
+
+CVE-2016-5195
+
+Check the Chinese README file to read chapter 1&2 
+
 ## 3 Implementation of exploit program
 
 ### 3.1 Modify read-only files
