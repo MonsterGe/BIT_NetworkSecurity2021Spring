@@ -105,11 +105,11 @@ re-try执行流: faultin_page()返回0，（alloc page-cache page）
   gcc -pthread dirtyc0w.c -o dirtycow
   ```
 
-  <img src="C:\Users\12053\AppData\Roaming\Typora\typora-user-images\image-20210523002552096.png" alt="image-20210523002552096" style="zoom:80%;" />
+  <img src="imgs/1.png" alt="image-20210523002552096" style="zoom:80%;" />
 
 * 创建test文件，并将其修改为只读文件。
 
-  <img src="C:\Users\12053\AppData\Roaming\Typora\typora-user-images\image-20210523004943930.png" alt="image-20210523004943930" style="zoom:80%;" />
+  <img src="imgs/2.png" alt="image-20210523004943930" style="zoom:80%;" />
 
 * 使用以下命令调用dirtycow程序，对test文件进行越权写入，效果如图。
 
@@ -117,7 +117,7 @@ re-try执行流: faultin_page()返回0，（alloc page-cache page）
   ./dirtyc0w test 0000000000000000000000
   ```
 
-  <img src="C:\Users\12053\AppData\Roaming\Typora\typora-user-images\image-20210523012544662.png" alt="image-20210523012544662" style="zoom:80%;" />
+  <img src="imgs/3.png" alt="image-20210523012544662" style="zoom:80%;" />
 
   可以看到，该文件已经被越权修改，该漏洞被成功利用。
 
@@ -159,17 +159,17 @@ re-try执行流: faultin_page()返回0，（alloc page-cache page）
 
 - 编译完成后，运行dirty文件，参数为新用户newroot的密码，这里设为001228，程序开始进行攻击。如果成功，程序会输出"Done! ..."。运行结果如图所示：
 
-  <img src="C:\Users\12053\AppData\Roaming\Typora\typora-user-images\image-20210523050429283.png" alt="image-20210523050429283" style="zoom: 80%;" />
+  <img src="imgs/5.png" alt="image-20210523050429283" style="zoom: 80%;" />
 
   可以看出，程序攻击成功。下面我们进行验证。
 
 - 在终端输入su newroot命令，输入密码001228，如图所示：
 
-  <img src="C:\Users\12053\AppData\Roaming\Typora\typora-user-images\image-20210523050248621.png" alt="image-20210523050248621" style="zoom:80%;" />
+  <img src="imgs/4.png" alt="image-20210523050248621" style="zoom:80%;" />
 
   可以看到，当前用户已经成功被切换为newroot，输入id查看该用户信息。再查看/etc/passwd文件，如图所示，第一行已经被修改成了newroot的信息。
 
-<img src="C:\Users\12053\AppData\Roaming\Typora\typora-user-images\image-20210523193927591.png" alt="image-20210523193927591" style="zoom:67%;" />
+<img src="imgs/7.png" alt="image-20210523193927591" style="zoom:67%;" />
 
 ## 4 总结与思考
 
