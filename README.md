@@ -1,5 +1,5 @@
 # BIT_NetworkSecurity2021Spring
-北京理工大学网络与信息安全课程大作业
+北京理工大学本科网络与信息安全课程大作业
 方向：漏洞攻击利用
 
 The final work of Network Security Course
