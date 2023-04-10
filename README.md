@@ -81,3 +81,4 @@ After the program is written, we conduct experiments in the same experimental en
    <img src="imgs/4.png" alt="image-20210523050248621" style="zoom:80%;" />
 
    It can be seen that the current user has been successfully switched to newroot, enter the id to view the user information. Check the /etc/passwd file again, as shown in the figure, the first line has been modified to newroot information.
+   <img src="imgs/7.png" alt="image-20210523193927591" style="zoom:67%;" />
